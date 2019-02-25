@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>ApolReady - Home</title>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    We are using Node.js <script>document.write(process.versions.node)</script>,
+    Chromium <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+
+    <script type="text/javascript">
+      //Create and save a demo document. Default export is a4 paper, portrait, using milimeters for units.
+      var doc = new jsPDF()
+
+      doc.text('Hello world!', 10, 10)
+      doc.save('a4.pdf')
+    </script>
+
+    <script>
+      //Require needed .js files. You can also require other files to run in this process.
+      require('./renderer.js')
+    </script>
+  </body>
+</html>
