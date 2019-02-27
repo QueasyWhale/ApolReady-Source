@@ -50,5 +50,13 @@
 <footer>
   <div class="copyright"><small>No Copyright. No Rights Reserved | by <a target="_blank" rel="nofollow" href="mailto:aaron.mann@outlook.com">Aaron Mann | Please don't do anything illegal with this software. I'm broke.</a>.</small></div>
 </footer>
+  
+<script>
+// Default export is a4 paper, portrait, using milimeters for units
+var doc = new jsPDF()
+
+doc.text('Hello world!', 10, 10)
+doc.save('a4.pdf')
+</script>
 </body>
 </html>
