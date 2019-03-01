@@ -26,35 +26,45 @@
 </section>
 <section id="main-content">
   <div class="text-intro">
-    <h2>About</h2>
+    <h2>Create</h2>
   </div>
-  <div class="columns features">
-    <div class="one-third first">
-      <h3>Speech Card: 3x5</h3>
-      <p>Format a speech sized for a 3x5 notecard.</p>
-      <p><a href="#" class="more">Create</a></p>
-    </div>
-    <div class="one-third">
-      <h3>Speech Card: 4x6</h3>
-      <p>Format a speech sized for a 4x6 notecard.</p>
-      <p><a href="#" class="more">Create</a></p>
-    </div>
-    <div class="one-third">
-      <h3>Aditional Notes:</h3>
-      <p>Contributions, bug reporting, and application updates.</p>
-      <p><a href="#" class="more">Go</a></p>
-    </div>
-  </div>
+
+  <!-- All of the Actual Input Logic -->
+  <textarea name="TextArea"rows="30" id="text3x5"></textarea>
+  <button onclick="submit3x5()">Submit</button>
+
+
+
+  <script type="text/javascript">
+    function submit3x5()
+    {
+      var userSubmission = document.getElementById("text3x5").value;
+
+      var PDFDocument, doc;
+      var fs = require('fs');
+      PDFDocument = require('pdfkit');
+      doc = new PDFDocument;
+      doc.pipe(fs.createWriteStream('Apologetics.pdf'));
+      // Set the paragraph width and align direction
+      doc.text(userSubmission, {
+      width: 410,
+      align: 'left'
+    });
+
+    doc.end();
+
+      //alert("File has been saved as 'Apologetics.PDF'. \n" + userSubmission);
+    }
+  </script>
+
+
+  <!--End of Input Logic -->
+
+
+
 </section>
 <footer>
   <div class="copyright"><small>No Copyright. No Rights Reserved | by <a target="_blank" rel="nofollow" href="mailto:aaron.mann@outlook.com">Aaron Mann | Please don't do anything illegal with this software. I'm broke.</a>.</small></div>
 </footer>
-  
-<script>
-// Default export is a4 paper, portrait, using milimeters for units
-var doc = new jsPDF()
-doc.text('Hello world!', 10, 10)
-doc.save('a4.pdf')
-</script>
 </body>
 </html>
