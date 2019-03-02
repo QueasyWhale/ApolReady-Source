@@ -30,37 +30,49 @@
   </div>
 
   <!-- All of the Actual Input Logic -->
-  <textarea name="TextArea"rows="30" id="text3x5"></textarea>
+  <textarea name="TextArea" id="text3x5"></textarea>
   <button onclick="submit3x5()">Submit</button>
 
+<script>
+function submit3x5()
+{
 
+  var userSubmission = document.getElementById("text3x5").value;
+  var app = require('electron').remote;
+  var dialog = app.dialog;
 
-  <script type="text/javascript">
-    function submit3x5()
-    {
-      var userSubmission = document.getElementById("text3x5").value;
+  dialog.showSaveDialog((fileName) => {
+    if (fileName === undefined){
+        console.log("You didn't save the file");
+        return;
+    }
 
-      var PDFDocument, doc;
-      var fs = require('fs');
-      PDFDocument = require('pdfkit');
-      doc = new PDFDocument;
-      doc.pipe(fs.createWriteStream('Apologetics.pdf'));
-      // Set the paragraph width and align direction
-      doc.text(userSubmission, {
-      width: 410,
-      align: 'left'
+    var PDFDocument, doc;
+    var fs = require('fs');
+    PDFDocument = require('pdfkit');
+    doc = new PDFDocument;
+    doc.pipe(fs.createWriteStream(fileName));
+
+    // Set a title and pass the X and Y coordinates
+    doc.fontSize(12).text('Apologetics Speech!', 50, 50);
+    // Set the paragraph width and align direction
+    doc.text(userSubmission, {
+      //margins: {
+        //top: 50,
+        //bottom: 50,
+        //left: 72,
+        //right: 72
+      //}
+        align: 'left'
     });
 
     doc.end();
 
-      //alert("File has been saved as 'Apologetics.PDF'. \n" + userSubmission);
-    }
-  </script>
+  });
 
+}
 
-  <!--End of Input Logic -->
-
-
+</script>
 
 </section>
 <footer>
