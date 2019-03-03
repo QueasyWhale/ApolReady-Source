@@ -44,28 +44,35 @@ function submit3x5()
   dialog.showSaveDialog((fileName) => {
     if (fileName === undefined){
         console.log("You didn't save the file");
+        alert("File not saved!!! No path/name defined. \nTo avoid this error on future attempts, make sure to select a folder for the file, and also add a file name.");
         return;
     }
 
     var PDFDocument, doc;
     var fs = require('fs');
     PDFDocument = require('pdfkit');
-    doc = new PDFDocument;
+    doc = new PDFDocument({autoFirstPage: false});
     doc.pipe(fs.createWriteStream(fileName));
 
-    // Set a title and pass the X and Y coordinates
-    doc.fontSize(12).text('Apologetics Speech!', 50, 50);
-    // Set the paragraph width and align direction
-    doc.text(userSubmission, {
-      //margins: {
-        //top: 50,
-        //bottom: 50,
-        //left: 72,
-        //right: 72
-      //}
-        align: 'left'
+    doc.addPage({
+     margins: {
+     top: 50,
+     bottom: 50,
+     left: 72,
+     right: 72
+     }
     });
 
+    doc.fontSize(11);
+    doc.text(userSubmission);
+    // Set a title and pass the X and Y coordinates
+    //doc.fontSize(12).text('Apologetics Speech!', 50, 50);
+    // Set the paragraph width and align direction
+    //doc.text(userSubmission, {
+        //align: 'left'
+    //});
+
+    //doc.rect(doc.x, 0, 410, doc.y).stroke();
     doc.end();
 
   });
