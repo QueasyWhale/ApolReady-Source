@@ -52,7 +52,7 @@ function submit3x5()
     var fs = require('fs');
     PDFDocument = require('pdfkit');
     doc = new PDFDocument({autoFirstPage: false});
-    doc.pipe(fs.createWriteStream(fileName));
+    doc.pipe(fs.createWriteStream(fileName + ".pdf"));
 
     doc.addPage({
      margins: {
@@ -65,14 +65,6 @@ function submit3x5()
 
     doc.fontSize(11);
     doc.text(userSubmission);
-    // Set a title and pass the X and Y coordinates
-    //doc.fontSize(12).text('Apologetics Speech!', 50, 50);
-    // Set the paragraph width and align direction
-    //doc.text(userSubmission, {
-        //align: 'left'
-    //});
-
-    //doc.rect(doc.x, 0, 410, doc.y).stroke();
     doc.end();
 
   });
