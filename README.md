@@ -6,7 +6,7 @@ This is why I created ApolReady. Using web technology, one can access ApolReady 
 
 # How to use:
 
-We are hard at work creating a beta testing version of this application for Windows. After beta testing, complete versions will be released for Windows, Mac, and Linux. Currently, testing is done through [NPM (Node Package Manager)](https://www.npmjs.com/get-npm) commands in terminal.
+We are hard at work creating a Alpha testing version of this application for Windows. After Alpha testing, complete versions will be released for Windows, Mac, and Linux. Currently, testing is done through [NPM (Node Package Manager)](https://www.npmjs.com/get-npm) commands in terminal.
 
 # But I really want to use ApolReady right now!!!
 
