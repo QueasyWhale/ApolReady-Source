@@ -8,7 +8,9 @@ This is why I created ApolReady. Using web technology, one can access ApolReady 
 
 We are hard at work creating a Alpha testing version of this application for Windows. After Alpha testing, complete versions will be released for Windows, Mac, and Linux. Currently, testing is done through [NPM (Node Package Manager)](https://www.npmjs.com/get-npm) commands in terminal.
 
-# But I really want to use ApolReady right now!!!
+However, recent developments have proven package testing successful, and have created a zip file for Windows installation only. To use this, simple download, extract the zip file, open the folder, and double=click ApolReady.exe. Thats it! This zip is the latest stable version packaged, however, stable versions are being added daily if you are savy enough to use terminal commands to install. Check out the next section if that is your sort of thing. 
+
+# But I really want to use the latest version of ApolReady on any platform!!!
 
 Alright... This is going to get technical... Real technical... Don't be afraid to look up some YouTube videos on these topics:
 
