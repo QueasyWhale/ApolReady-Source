@@ -4,6 +4,11 @@
 <title>ApolReady | 3x5</title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<meta name="pdfkit-pag_size" content="Letter"/>
+<meta name="pdfkit-margin_top" content="384"/>
+<meta name="pdfkit-margin_right" content="384"/>
+<meta name="pdfkit-margin_bottom" content="96"/>
+<meta name="pdfkit-margin_left" content="96"/>
 </head>
 <body>
 <header>
@@ -51,17 +56,24 @@ function submit3x5()
     var PDFDocument, doc;
     var fs = require('fs');
     PDFDocument = require('pdfkit');
-    doc = new PDFDocument({autoFirstPage: false});
-    doc.pipe(fs.createWriteStream(fileName + ".pdf"));
-
-    doc.addPage({
-     margins: {
-     top: 384,
-     bottom: 384,
-     left: 96,
-     right: 96
+    doc = new PDFDocument({
+      margins: {
+     top: 288,
+     bottom: 288,
+     left: 126,
+     right: 126
      }
     });
+    doc.pipe(fs.createWriteStream(fileName + ".pdf"));
+
+    //doc.addPage({
+     //margins: {
+     //top: 384,
+     //bottom: 384,
+     //left: 96,
+     //right: 96
+     //}
+    //});
 
     doc.fontSize(11);
     doc.text(userSubmission);
